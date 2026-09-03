@@ -21,3 +21,29 @@ test("sauce lab Locators", async({page})=>{
 
 }
 )
+
+test.only("OrangeHRM lab Locators", async({page})=>{
+
+    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+    await page.getByPlaceholder('Username').fill("Admin");
+    await page.getByPlaceholder('Password').fill("admin123");
+    await page.getByRole('button',{name: 'Login'}).click();
+
+   const dash =  page.getByRole('heading',{name:'Dashboard'});
+    await expect(dash).toBeVisible();
+    
+   await page.getByText('Admin', { exact: true }).click();
+   await page.getByRole('button', {name: 'Add'}).click();
+
+    const userRole = page
+    .locator('.oxd-input-group')
+    .filter({ hasText: 'User Role' });
+
+    await userRole.locator('.oxd-select-text').click();
+    await page.getByRole('option', { name: 'Admin' }).click();
+    
+    await page.waitForTimeout(5000);
+
+}
+)
