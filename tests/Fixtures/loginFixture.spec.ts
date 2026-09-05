@@ -7,12 +7,25 @@ type MyFixture = {
 export const test = base.extend<MyFixture>({
   loginPage: async ({ page }, use) => {
    
-    await page.goto("https://www.saucedemo.com/?utm_source=chatgpt.com");
+   console.log('SETUP: Login');
+
+    await page.goto('https://www.saucedemo.com/');
     await page.getByPlaceholder('Username').fill('standard_user');
     await page.getByPlaceholder('Password').fill('secret_sauce');
-    await page.getByRole('button', {name:'Login'}).click()
+    await page.getByRole('button', { name: 'Login' }).click();
+
+    console.log('SETUP: Finished');
 
     await use(page);
-    // teardown, if needed
+
+    console.log('TEARDOWN: Starting logout');
+
+    await page.getByRole('button', { name: 'Open Menu' }).click();
+    await page.locator('#logout_sidebar_link').click();
+
+    console.log('TEARDOWN: Finished');
+
+
+
   },
 });
