@@ -1,0 +1,54 @@
+<testsuites id="" name="" tests="6" failures="1" skipped="1" errors="0" time="9.973297">
+<testsuite name="reports.spec.ts" timestamp="2026-09-05T18:05:21.199Z" hostname="chromium" tests="6" failures="1" skipped="1" time="17.164" errors="0">
+<testcase name="demowebshop Home Page Tests › @P2 @Regression logotest" classname="reports.spec.ts" time="2.79">
+</testcase>
+<testcase name="demowebshop Home Page Tests › @P2 @Regression title test" classname="reports.spec.ts" time="2.057">
+</testcase>
+<testcase name="demowebshop User Login Tests › @P1 @Sanity Login test with in-valid credentials" classname="reports.spec.ts" time="2.661">
+</testcase>
+<testcase name="demowebshop User Login Tests › @P1 @Sanity Login test with valid credentials" classname="reports.spec.ts" time="2.935">
+</testcase>
+<testcase name="demowebshop User Login Tests › @P2 @Regression demowebshop search test" classname="reports.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="demowebshop User Login Tests › @P1 @Sanity demoblaze Login test" classname="reports.spec.ts" time="6.721">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/reports-demowebshop-User-L-af736-Sanity-demoblaze-Login-test-chromium/error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [chromium] › reports.spec.ts:74:9 › demowebshop User Login Tests › @P1 @Sanity demoblaze Login test 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('link', { name: 'Log out' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('link', { name: 'Log out' })
+
+
+      78 |         await page.locator('#loginpassword').fill('test@123X');
+      79 |         await page.getByRole('button', { name: 'Log in' }).click();
+    > 80 |         await expect(page.getByRole('link', { name: 'Log out' })).toBeVisible();
+         |                                                                   ^
+      81 |         await expect(page.locator('#nameofuser')).toContainText('Welcome pavanol');
+      82 |
+      83 |     });
+        at /Users/shiva/playwright-automation-framework/tests/reports.spec.ts:80:67
+
+    Error Context: ../test-results/reports-demowebshop-User-L-af736-Sanity-demoblaze-Login-test-chromium/error-context.md
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

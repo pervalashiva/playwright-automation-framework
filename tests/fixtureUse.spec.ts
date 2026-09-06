@@ -16,7 +16,17 @@ test('my test', async ({ loginPage }, testInfo) => {
      await loginPage.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
      await loginPage.locator('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click();
     await loginPage.waitForTimeout(2000);
+    loginPage.waitForLoadState('domcontentloaded')
+    loginPage.waitForLoadState('networkidle'),
+    loginPage.waitForLoadState('load');
+    loginPage.waitForEvent('dialog');
+    loginPage.waitForFunction('');
+    loginPage.waitForSelector('element handel');
+    loginPage.waitForTimeout(12321);
+    loginPage.waitForSelector('selectors', {'': 'vsisble'})
 
+
+    
 
 
 
